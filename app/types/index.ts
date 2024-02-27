@@ -1,4 +1,4 @@
-import {MouseEventHandler} from "react";
+import React, {MouseEventHandler} from "react";
 
 export interface CustomButtonProps {
     title : String;
@@ -6,4 +6,9 @@ export interface CustomButtonProps {
     btnType :"button" | "submit"
     handleClick ?:
         MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface  SearchManuFacturerProps{
+    manufacturer : String;
+    setManuFacturer : (manufacturer:String) => void;
 }
