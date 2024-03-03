@@ -1,9 +1,16 @@
 import Image from "next/image";
 import React from "react";
 import {CustomFilter, Hero, SearchBar} from "@/components";
+import {fetchCars} from "@/utils";
+import {all} from "axios";
 
 
-export default function Home() {
+export default async function Home() {
+    const allCars = await fetchCars()
+
+    const isDataEmpty = !Array.isArray(allCars) || allCars.length <0 || !allCars
+
+    console.log(allCars)
     return (
         <main className="overflow-hidden">
             <Hero/>
@@ -17,10 +24,20 @@ export default function Home() {
               <div className="home__filters">
                 <SearchBar />
                 <div className="home__filter-container">
-                  <CustomFilter title="fuel"/>
-                  <CustomFilter title="year"/>
+                  <CustomFilter />
+                  <CustomFilter />
                 </div>
               </div>
+
+                {allCars ? (
+                    <section>
+                        we have cars
+                    </section>
+                ):(
+                    <div className="home__error-container">
+                        <h2 className="text-black text-xl font-bold">Oops, no results</h2>
+                    </div>
+                )}
             </div>
         </main>
     );
