@@ -8,7 +8,7 @@ export interface CustomButtonProps {
         MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface  SearchManuFacturerProps{
+export interface  SearchManufacturerProps{
     manufacturer : String;
-    setManuFacturer : (manufacturer:String) => void;
+    setManufacturer : (manufacturer:String) => void;
 }
