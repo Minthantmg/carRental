@@ -1,11 +1,12 @@
-'use client'
 import Image from "next/image";
 import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
+import {SearchManuFacturerProps} from "@/app/types";
 import {manufacturers} from "@/app/constants";
-import {SearchManufacturerProps} from "@/app/types";
 
-const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacturerProps) => {
+
+
+const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacturerProps) => {
     const [query, setQuery] = useState("");
 
     const filteredManufacturers =
@@ -20,7 +21,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
 
     return (
         <div className='search-manufacturer'>
-            <Combobox value={manufacturer} onChange={setManufacturer}>
+            <Combobox value={manufacturer} onChange={setManuFacturer}>
                 <div className='relative w-full'>
                     {/* Button for the combobox. Click on the icon to see the complete dropdown */}
                     <Combobox.Button className='absolute top-[14px]'>
@@ -58,7 +59,6 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
                                     value={query}
                                     className='search-manufacturer__option'
                                 >
-                                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                                     Create "{query}"
                                 </Combobox.Option>
                             ) : (
